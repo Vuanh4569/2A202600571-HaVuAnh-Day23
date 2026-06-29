@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LangGraph Lab — Metrics Report</title>
+  <style>
+    body{font-family:Inter, system-ui, -apple-system, Roboto, "Helvetica Neue", Arial; padding:24px; color:#0b1220}
+    h1{margin:0 0 8px}
+    .summary{margin:12px 0;padding:12px;background:#f6f9fb;border:1px solid #e6eef6;border-radius:8px}
+    table{width:100%;border-collapse:collapse;margin-top:12px}
+    th,td{padding:8px;border-bottom:1px solid #eee;text-align:left}
+    th{background:#fafcff;font-weight:600}
+    .ok{color:green;font-weight:600}
+    .bad{color:#c0392b;font-weight:600}
+    pre{background:#0f1724;color:#e6eef6;padding:12px;border-radius:6px;overflow:auto}
+    footer{margin-top:18px;color:#556}
+  </style>
+</head>
+<body>
+  <h1>LangGraph Lab — Metrics Report</h1>
+  <div id="summary" class="summary">Loading metrics...</div>
+
+  <table id="scenTable" aria-describedby="summary">
+    <thead>
+      <tr>
+        <th>Scenario</th>
+        <th>Expected</th>
+        <th>Actual</th>
+        <th>Success</th>
+        <th>Nodes</th>
+        <th>Errors</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <footer>
+    <div>Source: <strong>outputs/metrics.json</strong></div>
+    <div style="margin-top:6px">To view locally, serve the <strong>outputs/</strong> folder and open this file in a browser.</div>
+  </footer>
+
+  <script>
+    async function loadMetrics(){
+      try{
+        const res = await fetch('metrics.json');
+        if(!res.ok) throw new Error('metrics.json not found or not served (use http server)');
+        const data = await res.json();
+        renderSummary(data);
+        renderTable(data.scenario_metrics || []);
+      }catch(err){
+        document.getElementById('summary').innerText = 'Error loading metrics.json: ' + err.message;
+      }
+    }
+
+    function renderSummary(d){
+      const el = document.getElementById('summary');
+      el.innerHTML = `
+        <div><strong>Total scenarios:</strong> ${d.total_scenarios}</div>
+        <div><strong>Success rate:</strong> ${Math.round((d.success_rate||0)*100)}%</div>
+        <div><strong>Avg nodes visited:</strong> ${d.avg_nodes_visited}</div>
+        <div><strong>Total retries:</strong> ${d.total_retries}</div>
+      `;
+    }
+
+    function renderTable(rows){
+      const body = document.querySelector('#scenTable tbody');
+      body.innerHTML = '';
+      rows.forEach(r =>{
+        const tr = document.createElement('tr');
+        const okClass = r.success ? 'ok' : 'bad';
+        const errors = (r.errors && r.errors.length) ? r.errors.join('; ') : '';
+        tr.innerHTML = `
+          <td>${r.scenario_id}</td>
+          <td>${r.expected_route}</td>
+          <td>${r.actual_route}</td>
+          <td class="${okClass}">${r.success ? '✔' : '✖'}</td>
+          <td>${r.nodes_visited}</td>
+          <td><small>${errors}</small></td>
+        `;
+        body.appendChild(tr);
+      });
+    }
+
+    loadMetrics();
+  </script>
+</body>
+</html>
