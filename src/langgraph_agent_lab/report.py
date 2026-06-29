@@ -25,7 +25,32 @@ def render_report(metrics: MetricsReport) -> str:
 
     Return: formatted markdown string
     """
-    raise NotImplementedError("TODO(student): implement report rendering from metrics")
+    lines: list[str] = []
+    lines.append(f"# Lab Report\n")
+    lines.append(f"## Metrics Summary\n")
+    lines.append(f"- Total scenarios: {metrics.total_scenarios}\n")
+    lines.append(f"- Success rate: {metrics.success_rate:.2%}\n")
+    lines.append(f"- Avg nodes visited: {metrics.avg_nodes_visited:.2f}\n")
+    lines.append(f"- Total retries: {metrics.total_retries}\n")
+    lines.append("\n## Per-scenario Results\n")
+    lines.append("| scenario_id | expected | actual | attempts | status |\n")
+    lines.append("|---|---|---|---:|---|")
+    for r in metrics.scenario_metrics:
+        lines.append(f"| {r.scenario_id} | {r.expected_route} | {r.actual_route} | {r.retry_count} | {'PASS' if r.success else 'FAIL'} |\n")
+
+    lines.append("\n## Architecture\n")
+    lines.append("Implemented a state-driven LangGraph workflow with nodes: intake, classify, tool, evaluate, clarify, risky_action, approval, retry, dead_letter, answer, finalize. State includes evaluation_result, pending_question, proposed_action, approval, attempt counters and append-only event logs.\n")
+
+    lines.append("\n## Failure Analysis\n")
+    lines.append("- Transient tool failures → handled with bounded retry loop and dead-letter.\n")
+    lines.append("- Missing information from user → handled by clarification node to avoid hallucination.\n")
+
+    lines.append("\n## Improvements\n")
+    lines.append("- Use LLM-as-judge in evaluate_node for better retry gating.\n")
+    lines.append("- Persist state changes to SQLite and surface replay for crash recovery.\n")
+    lines.append("- Add HITL interrupt UI for real approvals.\n")
+
+    return "\n".join(lines)
 
 
 def write_report(metrics: MetricsReport, output_path: str | Path) -> None:

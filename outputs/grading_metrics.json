@@ -1,0 +1,166 @@
+{
+  "total": 10,
+  "results": [
+    {
+      "id": "gq_d10_01",
+      "question": "Theo chính sách hoàn tiền hiện hành, khách hàng có tối đa bao nhiêu ngày làm việc để gửi yêu cầu hoàn tiền sau khi đơn được xác nhận?",
+      "answer": "Theo chính sách hiện hành, khách hàng có thể gửi yêu cầu hoàn tiền trong vòng 7 ngày làm việc sau khi đơn hàng được xác nhận.",
+      "score": 0.8,
+      "passed_any": true,
+      "passed_not": true,
+      "passed_doc": false,
+      "must_contain_any": [
+        "7 ngày",
+        "7 ngày làm việc"
+      ],
+      "must_not_contain": [
+        "14 ngày",
+        "14 ngày làm việc"
+      ],
+      "expect_top1_doc_id": "policy_refund_v4"
+    },
+    {
+      "id": "gq_d10_02",
+      "question": "Đâu là loại sản phẩm bị loại khỏi điều kiện hoàn tiền?",
+      "answer": "Các loại sản phẩm bị loại khỏi điều kiện hoàn tiền thường bao gồm hàng hóa đã qua sử dụng, sản phẩm đã bóc hộp, sản phẩm không còn nguyên vẹn và sản phẩm đã bị hỏng một cách cố ý. Thông tin cụ thể về các loại sản phẩm bị loại khỏi điều kiện hoàn tiền có thể được tìm thấy trong chính sách hoàn tiền của cửa hàng hoặc trên trang web của nhà sản xuất.",
+      "score": 0.2,
+      "passed_any": false,
+      "passed_not": true,
+      "passed_doc": false,
+      "must_contain_any": [
+        "hàng kỹ thuật số",
+        "license key",
+        "subscription"
+      ],
+      "must_not_contain": [],
+      "expect_top1_doc_id": "policy_refund_v4"
+    },
+    {
+      "id": "gq_d10_03",
+      "question": "Finance Team xử lý yêu cầu hoàn tiền trong bao lâu?",
+      "answer": "Thời gian xử lý yêu cầu hoàn tiền của Finance Team phụ thuộc vào nhiều yếu tố, bao gồm phương thức thanh toán ban đầu, quy trình nội bộ của công ty và số lượng yêu cầu hoàn tiền trong danh sách chờ. Để biết thời gian cụ thể xử lý yêu cầu hoàn tiền, bạn nên liên hệ trực tiếp với finance team hoặc bộ phận chăm sóc khách hàng của công ty để được thông tin chi tiết.",
+      "score": 0.2,
+      "passed_any": false,
+      "passed_not": true,
+      "passed_doc": false,
+      "must_contain_any": [
+        "3-5 ngày làm việc",
+        "3 đến 5 ngày"
+      ],
+      "must_not_contain": [],
+      "expect_top1_doc_id": "policy_refund_v4"
+    },
+    {
+      "id": "gq_d10_04",
+      "question": "SLA phản hồi ban đầu cho ticket P1 là bao lâu?",
+      "answer": "Thời gian phản hồi ban đầu cho ticket P1 có thể thay đổi tùy theo các quy định cụ thể của tổ chức hoặc doanh nghiệp. Tuy nhiên, trong nhiều trường hợp, một mục tiêu phổ biến cho SLA (Service Level Agreement - Thỏa thuận mức dịch vụ) cho phản hồi ban đầu cho ticket P1 là trong vòng 15 phút sau khi ticket được mở. Điều này giúp đảm bảo rằng các vấn đề quan trọng và cấp bách như P1 được xử lý một cách nhanh chóng và hiệu quả.",
+      "score": 0.8,
+      "passed_any": true,
+      "passed_not": true,
+      "passed_doc": false,
+      "must_contain_any": [
+        "15 phút",
+        "15p"
+      ],
+      "must_not_contain": [],
+      "expect_top1_doc_id": "sla_p1_2026"
+    },
+    {
+      "id": "gq_d10_05",
+      "question": "SLA resolution cho ticket P1 là bao nhiêu giờ?",
+      "answer": "Đáp án chung cho câu hỏi này sẽ phụ thuộc vào chính sách hoặc hợp đồng hỗ trợ của công ty cụ thể. Thông thường, P1 (Priority 1) là mức độ nghiêm trọng nhất và cần được xử lý ngay lập tức. Thời gian giải quyết SLA (Service Level Agreement) cho mức độ P1 thường là trong khoảng từ vài phút đến một giờ tùy thuộc vào công ty hoặc dịch vụ cụ thể. Để biết chính xác thời gian giải quyết SLA P1 trong trường hợp cụ thể, bạn cần tham khảo tài liệu hoặc liên hệ với bộ phận hỗ trợ của công ty đó.",
+      "score": 0.2,
+      "passed_any": false,
+      "passed_not": true,
+      "passed_doc": false,
+      "must_contain_any": [
+        "4 giờ",
+        "4h"
+      ],
+      "must_not_contain": [],
+      "expect_top1_doc_id": "sla_p1_2026"
+    },
+    {
+      "id": "gq_d10_06",
+      "question": "Nếu không có phản hồi với ticket P1 sau bao lâu thì hệ thống auto escalate?",
+      "answer": "Thời gian để hệ thống tự động tự luận ticket P1 có thể khác nhau tùy thuộc vào cấu hình cụ thể của hệ thống hỗ trợ của bạn. Tuy nhiên, thông thường, các doanh nghiệp thiết lập hệ thống tự động tiến hành escalate ticket P1 nếu không có phản hồi trong vòng 30 phút đến 1 giờ sau khi ticket được tạo. Để biết thông tin chính xác và chi tiết hơn, bạn nên xem lại quy trình và cấu hình của hệ thống hỗ trợ hoặc liên hệ với nhà cung cấp dịch vụ kỹ thuật của bạn.",
+      "score": 0.2,
+      "passed_any": false,
+      "passed_not": true,
+      "passed_doc": false,
+      "must_contain_any": [
+        "10 phút"
+      ],
+      "must_not_contain": [],
+      "expect_top1_doc_id": "sla_p1_2026"
+    },
+    {
+      "id": "gq_d10_07",
+      "question": "Tài khoản bị khóa sau bao nhiêu lần đăng nhập sai liên tiếp?",
+      "answer": "Tài khoản thường bị khóa sau một số lần đăng nhập sai liên tiếp được quy định bởi chính sách bảo mật của từng trang web, ứng dụng hoặc hệ thống. Thông thường, số lần đăng nhập sai liên tiếp có thể dao động từ 3 đến 10 lần trước khi tài khoản bị khóa. Để biết chính xác số lần đăng nhập sai cố định trước khi tài khoản bị khóa, bạn nên tham khảo thông tin từ trang web hoặc ứng dụng cụ thể mà bạn đang sử dụng.",
+      "score": 0.2,
+      "passed_any": false,
+      "passed_not": true,
+      "passed_doc": false,
+      "must_contain_any": [
+        "5 lần"
+      ],
+      "must_not_contain": [],
+      "expect_top1_doc_id": "it_helpdesk_faq"
+    },
+    {
+      "id": "gq_d10_08",
+      "question": "VPN cho phép kết nối tối đa bao nhiêu thiết bị cùng lúc?",
+      "answer": "Số lượng thiết bị mà một VPN có thể kết nối cùng lúc thường phụ thuộc vào loại dịch vụ và gói cước mà bạn chọn. Tuy nhiên, trong hầu hết các trường hợp, một VPN thông thường cho phép kết nối từ 3 đến 10 thiết bị cùng lúc.\n\nMột số dịch vụ VPN cao cấp có thể cho phép kết nối nhiều thiết bị hơn, có thể lên đến hàng chục thiết bị. Nếu bạn cần kết nối nhiều thiết bị đồng thời, hãy kiểm tra thông tin về số lượng thiết bị có thể kết nối được trong gói cước của dịch vụ VPN mà bạn quan tâm.",
+      "score": 0.2,
+      "passed_any": false,
+      "passed_not": true,
+      "passed_doc": false,
+      "must_contain_any": [
+        "2 thiết bị",
+        "2 device",
+        "2"
+      ],
+      "must_not_contain": [],
+      "expect_top1_doc_id": "it_helpdesk_faq"
+    },
+    {
+      "id": "gq_d10_09",
+      "question": "Nhân viên dưới 3 năm kinh nghiệm được bao nhiêu ngày phép năm theo chính sách HR 2026?",
+      "answer": "Theo chính sách HR 2026, nhân viên dưới 3 năm kinh nghiệm được hưởng 12 ngày phép năm.",
+      "score": 0.8,
+      "passed_any": true,
+      "passed_not": true,
+      "passed_doc": false,
+      "must_contain_any": [
+        "12 ngày",
+        "12 ngày phép năm"
+      ],
+      "must_not_contain": [
+        "10 ngày phép năm",
+        "10 ngày phép"
+      ],
+      "expect_top1_doc_id": "hr_leave_policy"
+    },
+    {
+      "id": "gq_d10_10",
+      "question": "Level 4 Admin Access yêu cầu phê duyệt bởi ai?",
+      "answer": "Level 4 Admin Access yêu cầu phê duyệt bởi người quản lý cấp cao trong công ty hoặc bộ phận IT để đảm bảo rằng việc cấp quyền truy cập này được thực hiện đúng quy trình và an toàn. Đối với một số tổ chức, có thể yêu cầu sự phê duyệt từ nhiều người hoặc từ một bộ phận kiểm duyệt riêng biệt.",
+      "score": 0.2,
+      "passed_any": false,
+      "passed_not": true,
+      "passed_doc": false,
+      "must_contain_any": [
+        "IT Manager",
+        "CISO"
+      ],
+      "must_not_contain": [],
+      "expect_top1_doc_id": "access_control_sop"
+    }
+  ],
+  "summary": {
+    "passed_count": 3,
+    "threshold": 0.7,
+    "avg_score": 0.38
+  }
+}

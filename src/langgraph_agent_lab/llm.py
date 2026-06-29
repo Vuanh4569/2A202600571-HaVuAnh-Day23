@@ -12,6 +12,14 @@ Usage in nodes:
 from __future__ import annotations
 
 import os
+try:
+    # If python-dotenv is installed, load .env automatically so users can just edit the file
+    from dotenv import load_dotenv
+
+    load_dotenv()
+except Exception:
+    # dotenv not installed — user can still export env vars manually
+    pass
 
 
 def get_llm(model: str | None = None, temperature: float = 0.0):
